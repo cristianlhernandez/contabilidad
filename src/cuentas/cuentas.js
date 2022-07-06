@@ -8,10 +8,11 @@
 Office.onReady((info) => {
   if (info.host === Office.HostType.Excel) {
     document.getElementById("run").onclick = run;
+    console.log("Running Excel");
   }
 });
 
-export async function run() {
+async function run() {
   try {
     await Excel.run(async (context) => {
       /**
