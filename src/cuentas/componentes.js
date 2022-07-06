@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 $(function () {
-  $("run").dxButton({
+  $("#run").dxButton({
     text: "Click",
     stylingMode: "outlined",
   });
