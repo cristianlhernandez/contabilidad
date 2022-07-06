@@ -55,7 +55,7 @@
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="TaskpaneButton2">
+                <!-- <Control xsi:type="Button" id="TaskpaneButton2">
                   <Label resid="TaskpaneButton2.Label"/>
                   <Supertip>
                     <Title resid="TaskpaneButton2.Label"/>
@@ -67,10 +67,11 @@
                     <bt:Image size="80" resid="add-table-72"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
+                    <Enabled>false</Enabled>
                     <TaskpaneId>ButtonId2</TaskpaneId>
                     <SourceLocation resid="Taskpane2.Url"/>
                   </Action>
-                </Control>
+                </Control> -->
               </Group>
             </CustomTab>
           </ExtensionPoint>
@@ -79,24 +80,24 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="edit-table-32" DefaultValue="https://localhost:3000/assets/edit-table-32.png"/>
-        <bt:Image id="edit-table-72" DefaultValue="https://localhost:3000/assets/edit-table-72.png"/>
-        <bt:Image id="add-table-32" DefaultValue="https://localhost:3000/assets/add-table-32.png"/>
-        <bt:Image id="add-table-72" DefaultValue="https://localhost:3000/assets/add-table-72.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://cristianlhernandez.github.io/contabilidad/assets/icon-16.png"/>
+        <bt:Image id="edit-table-32" DefaultValue="https://cristianlhernandez.github.io/contabilidad/assets/edit-table-32.png"/>
+        <bt:Image id="edit-table-72" DefaultValue="https://cristianlhernandez.github.io/contabilidad/assets/edit-table-72.png"/>
+        <bt:Image id="add-table-32" DefaultValue="https://cristianlhernandez.github.io/contabilidad/assets/add-table-32.png"/>
+        <bt:Image id="add-table-72" DefaultValue="https://cristianlhernandez.github.io/contabilidad/assets/add-table-72.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
+        <bt:Url id="SharedRuntime.Url" DefaultValue="https://localhost:3000/cuentas.html"/>
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
         <bt:Url id="Taskpane.Url" DefaultValue="https://cristianlhernandez.github.io/contabilidad/src/cuentas/cuentas.html"/>
-        <bt:Url id="Taskpane2.Url" DefaultValue="https://localhost:3000/cuentas.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
         <bt:String id="contabilidadTab.Label" DefaultValue="Contabilidad"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Plan de Cuentas"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Nueva Cuenta"/>
-        <bt:String id="TaskpaneButton2.Label" DefaultValue="Crear Tabla Cuentas"/>
+        <bt:String id="TaskpaneButton2.Label" DefaultValue="Crear Cuentas"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
