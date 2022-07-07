@@ -9,7 +9,6 @@ $(function () {
         {
           dataField: "codigoCuenta",
           isRequired: "true",
-          editorType: "dxTextBox",
           label: {
             text: "Código de la Cuenta",
           },
@@ -21,7 +20,6 @@ $(function () {
         },
         {
           dataField: "nombreCuenta",
-          editorType: "dxTextBox",
           isRequired: "true",
           label: {
             text: "Nombre de la Cuenta",
@@ -55,7 +53,6 @@ $(function () {
 
   $("#form-container").on("submit", async function (e) {
     e.preventDefault();
-    console.log(dato.codigoCuenta);
     try {
       await Excel.run(async (context) => {
         let sheetCuentas = context.workbook.worksheets.getItemOrNullObject("Plan de Cuentas");
@@ -72,13 +69,45 @@ $(function () {
           //tablaCuentas.columns.getItemAt(0).getDataBodyRange().numberFormat = [["#-#-##-##-###"]];
           sheetCuentas.getUsedRange().format.autofitColumns();
           sheetCuentas.getUsedRange().format.autofitRows();
+          //Notificación.
+          DevExpress.ui.notify({
+            message: "Se CREARON la hoja Plan de Cuentas y la Tabla. Por Favor Vuelva a Guardar los datos.",
+            width: 230,
+            type: "warning",
+            displayTime: 4000,
+            animation: {
+              show: {
+                type: "fade",
+                duration: 400,
+                from: 0,
+                to: 1,
+              },
+              hide: { type: "fade", duration: 40, to: 0 },
+            },
+          });
         } else {
           let tablaCuentas = sheetCuentas.tables.getItem("PlanCuentas");
           await context.sync();
           let cuenta = [dato.codigoCuenta, dato.nombreCuenta, dato.descripcionCuenta];
           tablaCuentas.rows.add(null, [cuenta], true);
-
-          dato.values = null;
+          sheetCuentas.getUsedRange().format.autofitColumns();
+          sheetCuentas.getUsedRange().format.autofitRows();
+          DevExpress.ui.notify({
+            message: `Se creó la Cuenta: ${dato.nombreCuenta}`,
+            width: 230,
+            type: "success",
+            displayTime: 1000,
+            position: "top center",
+            animation: {
+              show: {
+                type: "fade",
+                duration: 200,
+                from: 0,
+                to: 1,
+              },
+              hide: { type: "fade", duration: 20, to: 0 },
+            },
+          });
         }
         await context.sync();
       });
